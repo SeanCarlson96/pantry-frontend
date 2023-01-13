@@ -1,0 +1,12 @@
+.right-header {
+    position: fixed;
+    right: 2px;
+}
+/* .toolbar {
+} */
+span:hover {
+    cursor: pointer;
+}
+span {
+    margin: 1rem;
+}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-signup',
@@ -6,5 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
+  private ui: UiService;
+  public suUsername: string = ''
+  public suPassword: string = ''
 
+  constructor(ui: UiService){
+    this.ui = ui
+  }
+  onSignUp(suUsername: string, suPassword: string) {
+    this.suUsername = suUsername
+    this.suPassword = suPassword
+    this.ui.addAppUser({
+      username: this.suUsername, 
+      password: this.suPassword,
+      recipeIds: []
+    })
+  }
 }

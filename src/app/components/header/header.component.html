@@ -1,1 +1,18 @@
-<p>header works!</p>
+<mat-toolbar class="toolbar" color="primary">
+
+    <span (click)="ui.setPage('pantry')">Pantry</span>
+    <span (click)="ui.setPage('recipes')">My Recipes</span>
+
+    <div class="right-header">
+        <div *ngIf="!ui.loggedIn">
+            <span (click)="ui.setPage('login')">Login</span>
+            <span (click)="ui.setPage('signup')">Sign Up</span>
+        </div>
+
+        <div *ngIf="ui.loggedIn">
+            <span (click)="ui.setPage('profile')">My Profile</span>
+            <span (click)="ui.logout()">Logout</span>
+        </div>
+    </div>
+
+</mat-toolbar>

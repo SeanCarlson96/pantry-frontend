@@ -1,17 +1,17 @@
 <app-header></app-header>
 <div class="component-container">
 
-    <app-login></app-login>
-    <app-signup></app-signup>
-    <app-profile></app-profile>
+    <app-login *ngIf="ui.currentPage==='login'"></app-login>
+    <app-signup *ngIf="ui.currentPage==='signup'"></app-signup>
+    <app-profile *ngIf="ui.currentPage==='profile'"></app-profile>
 
-    <app-pantry></app-pantry>
-    <app-add-item></app-add-item>
-    <app-edit-item></app-edit-item>
+    <app-pantry *ngIf="ui.currentPage==='pantry'"></app-pantry>
+    <app-add-item *ngIf="ui.currentPage==='add-item'"></app-add-item>
+    <app-edit-item *ngIf="ui.currentPage==='edit-item'"></app-edit-item>
 
-    <app-recipes></app-recipes>
-    <app-view-recipe></app-view-recipe>
-    <app-add-recipe></app-add-recipe>
-    <app-edit-recipe></app-edit-recipe>
+    <app-recipes *ngIf="ui.currentPage==='recipes'"></app-recipes>
+    <app-view-recipe *ngIf="ui.currentPage==='view-recipe'"></app-view-recipe>
+    <app-add-recipe *ngIf="ui.currentPage==='add-recipe'"></app-add-recipe>
+    <app-edit-recipe *ngIf="ui.currentPage==='edit-recipe'"></app-edit-recipe>
 
 </div>

@@ -52,7 +52,10 @@ export class UiService {
     return this.currentUser = user
   }
   logout(){
-    this.currentUser=null; this.loggedIn=false; localStorage.setItem("loggedIn", 'false');
+    this.currentUser = null
+    this.loggedIn = false
+    localStorage.setItem("loggedIn", 'false')
+    this.currentPage='pantry'
   }
   openSnackBar(message: string, action: string){
     this._snackBar.open(message, action);

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UiService } from './services/ui.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pantry';
+  public ui: UiService
+
+  constructor(ui: UiService){
+    this.ui = ui
+  }
 }
