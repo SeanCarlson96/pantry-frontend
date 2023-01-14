@@ -1,1 +1,33 @@
-<p>add-item works!</p>
+<h3 style="margin-left: 5vw;">Add New Item</h3><br/>
+<div class="container">
+        <mat-form-field appearance="fill">
+            <mat-label>Item Name</mat-label>
+            <input name="newItemUnitName" matInput 
+            [(ngModel)]="newItemUnitName" required />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Item Image URL</mat-label>
+            <input name="newItemUnitImage" matInput
+            [(ngModel)]="newItemUnitImage" required />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Weight Per Serving (g)</mat-label>
+            <input name="newItemUnitWeightPerUnit" matInput type="number"
+            [(ngModel)]="newItemUnitWeightPerUnit" required />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Calories Per Serving</mat-label>
+            <input name="newItemUnitCaloriesPerUnit" matInput type="number"
+            [(ngModel)]="newItemUnitCaloriesPerUnit" required />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Number of Servings</mat-label>
+            <input name="newItemUnitPantryQuantity" matInput type="number"
+            [(ngModel)]="newItemUnitPantryQuantity" required />
+        </mat-form-field>
+
+        <button mat-icon-button type="submit" color="accent" (click)="createItemUnit()">
+            <mat-icon>add_box</mat-icon>
+            Add Item to Pantry
+        </button>
+</div>

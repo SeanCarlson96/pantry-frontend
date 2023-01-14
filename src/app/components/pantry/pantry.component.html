@@ -1,1 +1,58 @@
-<p>pantry works!</p>
+<div class="add-btn" *ngIf="editItemUnitId < 0">
+    <button mat-flat-button color="accent" *ngIf="newItemUnit===false" (click)="newItemUnit = true">Add New</button>
+    <button mat-flat-button color="accent" *ngIf="newItemUnit===true" (click)="newItemUnit = false; ui.loadItemUnits();">Inventory Table</button>
+    </div>
+    <div class="add-btn" *ngIf="editItemUnitId > -1">
+      <button mat-flat-button color="accent" *ngIf="newItemUnit===false"
+      (click)="newItemUnit = false; editItemUnitId = -1">Inventory Table</button>
+    </div>
+    
+    <app-add-item *ngIf="newItemUnit===true"></app-add-item>
+    <app-edit-item *ngIf="editItemUnitId > -1"></app-edit-item>
+    
+    <div *ngIf="newItemUnit===false && editItemUnitId < 0" class="table-container">
+    
+        <table mat-table [dataSource]="this.dataSource" class="mat-elevation-z8">
+          
+            <ng-container matColumnDef="image">
+              <th mat-header-cell *matHeaderCellDef> Image </th>
+              <td mat-cell *matCellDef="let element"> {{element.image}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="weightPerUnit">
+              <th mat-header-cell *matHeaderCellDef> Weight Per Serving </th>
+              <td mat-cell *matCellDef="let element"> {{element.weightPerUnit}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="caloriesPerUnit">
+                <th mat-header-cell *matHeaderCellDef> Calories Per Serving </th>
+                <td mat-cell *matCellDef="let element"> {{element.caloriesPerUnit}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="pantryQuantity">
+                <th mat-header-cell *matHeaderCellDef> Current Quantity </th>
+                <td mat-cell *matCellDef="let element"> {{element.pantryQuantity}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Edit">
+                <th mat-header-cell *matHeaderCellDef> Edit </th>
+                <td mat-cell *matCellDef="let element" (click)="openProductEdit(element.id)"><mat-icon>edit</mat-icon></td>
+            </ng-container>
+
+            <ng-container matColumnDef="Delete">
+                <th mat-header-cell *matHeaderCellDef> Delete </th>
+                <td mat-cell *matCellDef="let element" (click)="ui.deleteItemUnit(element.id)">
+                <mat-icon color="accent">delete_forever</mat-icon></td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+        </table>
+    
+    </div>

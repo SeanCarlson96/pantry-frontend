@@ -31,6 +31,7 @@ export class UiService {
   public itemInRecipesSubject: Subject<ItemInRecipe[]> = new Subject();
   public recipes: Recipe[] = [];
   public recipesSubject: Subject<Recipe[]> = new Subject();
+  public itemUnitIdToEdit: number = -1;
 
   constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
     this.currentPage = localStorage.getItem("page") ? localStorage.getItem("page") : 'posts';
