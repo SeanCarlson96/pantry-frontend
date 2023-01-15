@@ -32,6 +32,8 @@ export class UiService {
   public recipes: Recipe[] = [];
   public recipesSubject: Subject<Recipe[]> = new Subject();
   public itemUnitIdToEdit: number = -1;
+  public recipeIdToEdit: number = -1;
+  public recipeIdToView: number = -1;
 
   constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
     this.currentPage = localStorage.getItem("page") ? localStorage.getItem("page") : 'posts';
@@ -220,7 +222,10 @@ export class UiService {
       .delete<ItemUnit>(`http://localhost:8080/itemunits/${id}`)
       .pipe(take(1))
       .subscribe({
-        next: ()=> this.loadItemUnits(),
+        next: () => {
+          this.openSnackBar('Item deleted', 'Close')
+          this.loadItemUnits();
+        },
         error: () => this.openSnackBar('Error deleting item', 'Close')
     })
   }

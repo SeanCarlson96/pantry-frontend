@@ -27,7 +27,7 @@ export class PantryComponent implements OnDestroy{
     this.itemUnitsSubscription.unsubscribe()
   }
 
-  openProductEdit(id: number) {
+  openItemUnitEdit(id: number) {
     this.ui.itemUnitIdToEdit = id
     this.editItemUnitId = id
   }

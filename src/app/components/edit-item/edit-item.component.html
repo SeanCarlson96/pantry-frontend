@@ -1,1 +1,33 @@
-<p>edit-item works!</p>
+<h3 style="margin-left: 5vw;">Edit Item</h3><br/>
+<div class="container">
+        <mat-form-field appearance="fill">
+            <mat-label>Item Name</mat-label>
+            <input name="editItemUnitName" matInput 
+            [(ngModel)]="editItemUnitName" required />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Item Image URL</mat-label>
+            <input name="editItemUnitImage" matInput
+            [(ngModel)]="editItemUnitImage" required />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Weight Per Serving (g)</mat-label>
+            <input name="editItemUnitWeightPerUnit" matInput type="number"
+            [(ngModel)]="editItemUnitWeightPerUnit" required />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Calories Per Serving</mat-label>
+            <input name="editItemUnitCaloriesPerUnit" matInput type="number"
+            [(ngModel)]="editItemUnitCaloriesPerUnit" required />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Number of Servings</mat-label>
+            <input name="editItemUnitPantryQuantity" matInput type="number"
+            [(ngModel)]="editItemUnitPantryQuantity" required />
+        </mat-form-field>
+
+        <button mat-icon-button type="submit" color="accent" (click)="updateItemUnit()">
+            <mat-icon>edit</mat-icon>
+            Update Item in Pantry
+        </button>
+</div>
