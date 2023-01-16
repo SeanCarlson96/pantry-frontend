@@ -13,7 +13,7 @@ export class RecipesComponent {
   public newRecipe: boolean = false
   public viewRecipe: boolean = false
   public editRecipeId: number = -1
-  public displayedColumns: string[] = ['image', 'name', 'ingredients', 'steps', 'View', 'Edit', 'Delete' ];
+  public displayedColumns: string[] = ['image', 'name', 'View', 'Edit', 'Delete' ]; // 'ingredients', 'steps',
   public dataSource: Recipe[] = []
   private recipesSubscription: Subscription
 
@@ -28,8 +28,8 @@ export class RecipesComponent {
     this.recipesSubscription.unsubscribe()
   }
   openRecipeView(id: number) {
-    this.viewRecipe = true
     this.ui.recipeIdToView = id
+    this.ui.setPage('view-recipe')
   }
   openRecipeEdit(id: number) {
     this.ui.recipeIdToEdit = id
