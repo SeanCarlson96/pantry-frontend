@@ -1,0 +1,7 @@
+.user-info{
+    width: 400px;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}

@@ -1,1 +1,13 @@
-<p>view-recipe works!</p>
+<img src={{this.recipeImage}} alt="recipe image"/>
+<h1>{{this.recipeName}}</h1>
+<p>by: {{this.recipeUser.username}}</p>
+<h4>Ingredients</h4>
+<div *ngFor="let ingredient of this.recipeIngredients">
+    <p>{{ingredient.weightNeeded}} grams of {{ingredient.item.name}}</p>
+</div>
+<h4>Steps</h4>
+<p>{{this.recipeSteps}}</p>
+
+<button mat-flat-button color="accent" (click)="recipeMade()">
+    I Made This Recipe
+</button>

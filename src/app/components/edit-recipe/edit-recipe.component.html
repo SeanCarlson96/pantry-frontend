@@ -1,1 +1,50 @@
-<p>edit-recipe works!</p>
+<h3 style="margin-left: 5vw;">Edit Recipe</h3><br/>
+<div class="container">
+    <div *ngIf="recipeNameImageEdited===false">
+        <mat-form-field appearance="fill">
+            <mat-label>Recipe Name</mat-label>
+            <input name="editRecipeName" matInput 
+            [(ngModel)]="editRecipeName" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Recipe Image URL</mat-label>
+            <input name="editRecipeImage" matInput
+            [(ngModel)]="editRecipeImage" required />
+        </mat-form-field>
+
+        <button mat-icon-button type="submit" color="accent" (click)="updateRecipe()">
+            Add Ingredients
+            <mat-icon>arrow_forward</mat-icon>
+        </button>
+    </div>
+
+        <div *ngIf="recipeNameImageEdited===true">
+            <mat-form-field appearance="fill">
+                <mat-label>Ingredients</mat-label>
+                <mat-select name="editRecipeIngredients" matInput
+                [(ngModel)]="editRecipeIngredients" multiple required>
+                    <mat-option *ngFor="let item of ui.itemUnits" [value]="item.id">{{item.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+    
+            <div *ngFor="let itemId of editRecipeIngredients">
+                <mat-form-field>
+                    <mat-label>Weight of {{ findName(itemId) }} Needed (g)</mat-label>
+                    <input name="editItemInRecipeWeightArr{{itemId}}" matInput type="number"
+                    [(ngModel)]="editItemInRecipeWeightArr[itemId]" required />
+                </mat-form-field>
+            </div>
+            
+            <mat-form-field appearance="fill">
+                <mat-label>Steps</mat-label>
+                <textarea name="editRecipeSteps" matInput [(ngModel)]="editRecipeSteps"></textarea>
+            </mat-form-field>
+
+            <button mat-icon-button type="submit" color="accent" (click)="updateItemsInRecipe()">
+                <mat-icon>add_box</mat-icon>
+                Update Recipe
+            </button>
+
+        </div>
+</div>

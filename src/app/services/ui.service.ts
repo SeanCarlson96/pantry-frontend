@@ -31,14 +31,18 @@ export class UiService {
   public itemInRecipesSubject: Subject<ItemInRecipe[]> = new Subject();
   public recipes: Recipe[] = [];
   public recipesSubject: Subject<Recipe[]> = new Subject();
+
   public itemUnitIdToEdit: number = -1;
   public recipeIdToEdit: number = -1;
   public recipeIdToView: number = -1;
+  public stringRecipeIdToView: string | null = ''
 
   constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
     this.currentPage = localStorage.getItem("page") ? localStorage.getItem("page") : 'posts';
     this.currentUser = localStorage.getItem("currentUser") ? JSON.parse(localStorage.getItem("currentUser") || '{}') : {} as AppUser;
     this.loggedIn = localStorage.getItem("loggedIn") === 'true' ? true : false;
+    this.stringRecipeIdToView = localStorage.getItem("recipeIdToView") ? localStorage.getItem("recipeIdToView") : '';
+    this.recipeIdToView = this.stringRecipeIdToView ? Number(this.stringRecipeIdToView) : -1
     this.loadUsers()
     this.loadPantries()
     this.loadItemUnits()
