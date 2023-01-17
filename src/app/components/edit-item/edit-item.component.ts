@@ -34,7 +34,7 @@ export class EditItemComponent {
       image: this.editItemUnitImage,
       weightPerUnit: this.editItemUnitWeightPerUnit,
       caloriesPerUnit: this.editItemUnitCaloriesPerUnit,
-      pantryQuantity: this.editItemUnitCaloriesPerUnit,
+      pantryQuantity: this.editItemUnitPantryQuantity,
       pantryId: 1,
       thisItemInRecipeIds: []  //sending this as empty, and never using this for the update on the back end
     }

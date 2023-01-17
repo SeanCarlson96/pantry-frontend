@@ -13,7 +13,7 @@
             [(ngModel)]="newRecipeImage" required />
         </mat-form-field>
 
-        <button mat-icon-button type="submit" color="accent" (click)="createRecipe()">
+        <button mat-fab extended type="submit" color="accent" (click)="createRecipe()">
             Add Ingredients
             <mat-icon>arrow_forward</mat-icon>
         </button>
@@ -41,10 +41,10 @@
                 <textarea name="newRecipeSteps" matInput [(ngModel)]="newRecipeSteps"></textarea>
             </mat-form-field>
 
-            <button mat-icon-button type="submit" color="accent" (click)="createItemsInRecipe()">
+            <button mat-fab extended type="submit" color="accent" (click)="createItemsInRecipe()">
                 <mat-icon>add_box</mat-icon>
                 Add Recipe
             </button>
 
         </div>
-</div>
+</div> 

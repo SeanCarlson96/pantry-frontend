@@ -17,7 +17,7 @@ export class AddRecipeComponent {
   newRecipeSteps: string = ''
   newItemInRecipeWeightArr: number[] = []
   recipeCreated: boolean = false
-  recipeId: number = 0
+  recipeId: number = 0 
 
   constructor(public ui: UiService) {}
 

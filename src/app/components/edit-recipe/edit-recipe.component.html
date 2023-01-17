@@ -1,5 +1,6 @@
 <h3 style="margin-left: 5vw;">Edit Recipe</h3><br/>
 <div class="container">
+    
     <div *ngIf="recipeNameImageEdited===false">
         <mat-form-field appearance="fill">
             <mat-label>Recipe Name</mat-label>
@@ -13,7 +14,7 @@
             [(ngModel)]="editRecipeImage" required />
         </mat-form-field>
 
-        <button mat-icon-button type="submit" color="accent" (click)="updateRecipe()">
+        <button mat-fab extended type="submit" color="accent" (click)="updateRecipe()">
             Add Ingredients
             <mat-icon>arrow_forward</mat-icon>
         </button>
@@ -41,7 +42,7 @@
                 <textarea name="editRecipeSteps" matInput [(ngModel)]="editRecipeSteps"></textarea>
             </mat-form-field>
 
-            <button mat-icon-button type="submit" color="accent" (click)="updateItemsInRecipe()">
+            <button mat-fab extended type="submit" color="accent" (click)="updateItemsInRecipe()">
                 <mat-icon>add_box</mat-icon>
                 Update Recipe
             </button>

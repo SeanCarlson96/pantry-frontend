@@ -94,8 +94,12 @@ export class UiService {
         this.currentUser = appUser
         this.setCurrentUser(appUser)
         this.loggedIn = true
+        this.setPage('pantry')
       },
-      error: () => this.openSnackBar('Invalid Credentials', 'Close'),
+      error: () => {
+        this.openSnackBar('Invalid Credentials', 'Close')
+        this.setPage('login')
+      }
     })
   }
   addAppUser(newUser: AppUserDTO): void {
@@ -127,7 +131,15 @@ export class UiService {
       .delete<AppUser>(`http://localhost:8080/appusers/${id}`)
       .pipe(take(1))
       .subscribe({
-        next: ()=> this.loadUsers(),
+        next: ()=> {
+          this.loadUsers()
+          this.openSnackBar('User Deleted', 'Close')
+          this.setPage('login')
+          this.loggedIn = false
+          localStorage.setItem("loggedIn", 'false')
+          this.currentUser = null
+          localStorage.removeItem('currentUser');
+        },
         error: () => this.openSnackBar('Error deleting user', 'Close')
     })
   }
