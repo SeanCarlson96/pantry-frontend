@@ -21,7 +21,17 @@ export class RecipesComponent {
     this.ui = ui
     ui.loadRecipes()
     this.recipesSubscription = ui.whenRecipesUpdates().subscribe(recipes => {
-      this.dataSource = recipes
+      if(this.ui.currentUser?.id===undefined){
+        this.dataSource = []
+      } else {
+        for(let i = 0; i < recipes.length; i++){
+          if(recipes[i].user.id !== this.ui.currentUser?.id){
+            
+            recipes.splice(i, 1)
+          }
+        }
+        this.dataSource = recipes
+      }
     })
   }
   ngOnDestroy(): void {
