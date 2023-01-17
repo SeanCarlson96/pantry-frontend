@@ -8,7 +8,7 @@ import { ItemUnit } from 'src/data/ItemUnit';
   templateUrl: './pantry.component.html',
   styleUrls: ['./pantry.component.css']
 })
-export class PantryComponent implements OnDestroy{
+export class PantryComponent implements OnDestroy {
   ui: UiService
   public newItemUnit: boolean = false
   public editItemUnitId: number = -1

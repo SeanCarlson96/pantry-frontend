@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { UiService } from 'src/app/services/ui.service';
 import { Recipe } from 'src/data/Recipe';
@@ -8,7 +8,7 @@ import { Recipe } from 'src/data/Recipe';
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.css']
 })
-export class RecipesComponent {
+export class RecipesComponent implements OnDestroy {
   ui: UiService
   public newRecipe: boolean = false
   public viewRecipe: boolean = false
@@ -26,7 +26,6 @@ export class RecipesComponent {
       } else {
         for(let i = 0; i < recipes.length; i++){
           if(recipes[i].user.id !== this.ui.currentUser?.id){
-            
             recipes.splice(i, 1)
           }
         }

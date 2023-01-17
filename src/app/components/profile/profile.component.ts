@@ -13,7 +13,6 @@ export class ProfileComponent {
   editAppUser = {} as AppUserDTO
   userRecipes: number[] = []
 
-
   constructor(public ui: UiService){
     this.editUsername = this.ui.currentUser?.username ? this.ui.currentUser?.username : ''
     this.editPassword = this.ui.currentUser?.password ? this.ui.currentUser?.password : ''

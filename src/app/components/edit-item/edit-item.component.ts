@@ -16,7 +16,6 @@ export class EditItemComponent {
   editItemUnitPantryQuantity: number = 0
 
   constructor(public ui: UiService) {
-    //get the item that we want to edit and set its value to our ngmodel values
     for(let item of ui.itemUnits) {
       if(item.id === ui.itemUnitIdToEdit){
         this.editItemUnitName = item.name
@@ -36,7 +35,7 @@ export class EditItemComponent {
       caloriesPerUnit: this.editItemUnitCaloriesPerUnit,
       pantryQuantity: this.editItemUnitPantryQuantity,
       pantryId: 1,
-      thisItemInRecipeIds: []  //sending this as empty, and never using this for the update on the back end
+      thisItemInRecipeIds: []  //sending this as empty, and not using it for the update on the back end
     }
     this.ui.updateItemUnit(this.ui.itemUnitIdToEdit, this.updatedItemUnit)
   }

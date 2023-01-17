@@ -32,7 +32,6 @@ export class EditRecipeComponent {
         this.editRecipeSteps = recipe.steps
       }
     }
-    console.log(this.editRecipeIngredients)
   }
 
   findName(itemId: number): string | undefined {
@@ -61,7 +60,7 @@ export class EditRecipeComponent {
         this.recipeId = recipe.id
       }
     }
-
+    
     for(let itemId of this.editRecipeIngredients){
       for(let ingredient of this.ui.itemInRecipes){
         if(ingredient.item.id === itemId){

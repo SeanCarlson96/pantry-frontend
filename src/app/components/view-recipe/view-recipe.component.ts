@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { UiService } from 'src/app/services/ui.service';
 import { AppUser } from 'src/data/AppUser';
@@ -9,7 +9,7 @@ import { ItemInRecipe } from 'src/data/ItemInRecipe';
   templateUrl: './view-recipe.component.html',
   styleUrls: ['./view-recipe.component.css']
 })
-export class ViewRecipeComponent {
+export class ViewRecipeComponent implements OnDestroy {
   recipeName: string = ''
   recipeImage: string = ''
   recipeIngredients: ItemInRecipe[] = []
@@ -34,6 +34,9 @@ export class ViewRecipeComponent {
       }
     }
     })
+  }
+  ngOnDestroy(): void {
+    this.recipesSubscription.unsubscribe()
   }
   recipeMade(){
     for(let ingredient of this.recipeIngredients){

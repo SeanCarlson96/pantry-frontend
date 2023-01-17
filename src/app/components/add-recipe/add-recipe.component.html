@@ -1,6 +1,6 @@
 <h3 style="margin-left: 5vw;">Add New Recipe</h3><br/>
-<div class="container">
-    <div *ngIf="recipeCreated===false">
+<div>
+    <div *ngIf="recipeCreated===false"  class="container">
         <mat-form-field appearance="fill">
             <mat-label>Recipe Name</mat-label>
             <input name="newRecipeName" matInput 
@@ -19,7 +19,7 @@
         </button>
     </div>
 
-        <div *ngIf="recipeCreated===true">
+        <div *ngIf="recipeCreated===true"  class="container">
             <mat-form-field appearance="fill">
                 <mat-label>Ingredients</mat-label>
                 <mat-select name="newRecipeIngredients" matInput

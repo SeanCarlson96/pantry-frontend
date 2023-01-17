@@ -2,8 +2,6 @@
     position: fixed;
     right: 2px;
 }
-/* .toolbar {
-} */
 span:hover {
     cursor: pointer;
 }
