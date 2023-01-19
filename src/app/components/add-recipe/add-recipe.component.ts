@@ -65,5 +65,6 @@ export class AddRecipeComponent {
     }
     this.newRecipe.steps = this.newRecipeSteps
     this.ui.updateRecipe(this.recipeId, this.newRecipe)
+    this.ui.newRecipe = false
   }
 }

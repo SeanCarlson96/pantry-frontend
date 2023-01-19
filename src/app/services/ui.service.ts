@@ -36,6 +36,10 @@ export class UiService {
   public recipeIdToEdit: number = -1;
   public recipeIdToView: number = -1;
   public stringRecipeIdToView: string | null = ''
+  public newItemUnit: boolean = false
+  public editItemUnitId: number = -1
+  public newRecipe: boolean = false
+  public editRecipeId: number = -1
 
   constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
     this.currentPage = localStorage.getItem("page") ? localStorage.getItem("page") : 'posts';
@@ -218,18 +222,21 @@ export class UiService {
         next: () => {
           this.openSnackBar('Item Added', 'Close')
           this.loadItemUnits();
+          this.newItemUnit = false
         },
         error: () => this.openSnackBar('Error adding a new item', 'Close'),
     })
   }
   updateItemUnit(id: number, updatedItemUnit: ItemUnitDTO){
+    console.log(updatedItemUnit)
     this.http
       .put<ItemUnitDTO>(`http://localhost:8080/itemunits/${id}`, updatedItemUnit)
       .pipe(take(1))
       .subscribe({
         next: () => {
           this.openSnackBar('Item updated', 'Close')
-          this.loadItemUnits();
+          this.loadItemUnits()
+          this.editItemUnitId = -1
         },
         error: () => this.openSnackBar('Update failed', 'Close'),
     })
@@ -269,7 +276,7 @@ export class UiService {
       .pipe(take(1))
       .subscribe({
         next: () => {
-          this.openSnackBar('Recipe Item Added', 'Close')
+          this.openSnackBar('Recipe Added', 'Close')
           this.loadItemInRecipes();
         },
         error: () => this.openSnackBar('Error adding a new recipe item', 'Close'),
@@ -314,12 +321,13 @@ export class UiService {
     })
   }
   addRecipe(newRecipe: RecipeDTO): void {
+    console.log(newRecipe)
     this.http
       .post<RecipeDTO>('http://localhost:8080/recipes', newRecipe)
       .pipe(take(1))
       .subscribe({
         next: () => {
-          this.openSnackBar('Recipe Added', 'Close')
+          //this.openSnackBar('Recipe Added', 'Close')
           this.loadRecipes();
         },
         error: () => this.openSnackBar('Error adding a new recipe', 'Close'),
@@ -342,7 +350,10 @@ export class UiService {
       .delete<Recipe>(`http://localhost:8080/recipes/${id}`)
       .pipe(take(1))
       .subscribe({
-        next: ()=> this.loadRecipes(),
+        next: ()=> {
+          this.openSnackBar('Recipe deleted', 'Close')
+          this.loadRecipes();
+        },
         error: () => this.openSnackBar('Error deleting recipe', 'Close')
     })
   }

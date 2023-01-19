@@ -10,8 +10,8 @@ import { ItemUnit } from 'src/data/ItemUnit';
 })
 export class PantryComponent implements OnDestroy {
   ui: UiService
-  public newItemUnit: boolean = false
-  public editItemUnitId: number = -1
+  //public newItemUnit: boolean = false
+  //public editItemUnitId: number = -1
   public displayedColumns: string[] = ['image', 'name', 'weightPerUnit', 'caloriesPerUnit', 'pantryQuantity', 'Edit', 'Delete' ];
   public dataSource: ItemUnit[] = []
   private itemUnitsSubscription: Subscription
@@ -29,7 +29,7 @@ export class PantryComponent implements OnDestroy {
 
   openItemUnitEdit(id: number) {
     this.ui.itemUnitIdToEdit = id
-    this.editItemUnitId = id
+    this.ui.editItemUnitId = id
   }
 
 }

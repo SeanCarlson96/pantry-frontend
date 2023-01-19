@@ -43,6 +43,6 @@ export class RecipesComponent implements OnDestroy {
   }
   openRecipeEdit(id: number) {
     this.ui.recipeIdToEdit = id
-    this.editRecipeId = id
+    this.ui.editRecipeId = id
   }
 }

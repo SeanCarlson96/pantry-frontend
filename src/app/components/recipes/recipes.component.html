@@ -1,19 +1,19 @@
     
-<div class="add-btn" *ngIf="editRecipeId < 0">
-        <button mat-flat-button color="accent" *ngIf="newRecipe===false"
-        (click)="newRecipe = true">Add New Recipe</button>
-        <button mat-flat-button color="accent" *ngIf="newRecipe===true"
-        (click)="newRecipe = false; ui.loadRecipes();">My Recipes</button>
+<div class="add-btn" *ngIf="ui.editRecipeId < 0">
+        <button mat-flat-button color="accent" *ngIf="ui.newRecipe===false"
+        (click)="ui.newRecipe = true">Add New Recipe</button>
+        <button mat-flat-button color="accent" *ngIf="ui.newRecipe===true"
+        (click)="ui.newRecipe = false; ui.loadRecipes();">My Recipes</button>
     </div>
-    <div class="add-btn" *ngIf="editRecipeId > -1">
-      <button mat-flat-button color="accent" *ngIf="newRecipe===false"
-      (click)="newRecipe = false; editRecipeId = -1">My Recipes</button>
+    <div class="add-btn" *ngIf="ui.editRecipeId > -1">
+      <button mat-flat-button color="accent" *ngIf="ui.newRecipe===false"
+      (click)="ui.newRecipe = false; ui.editRecipeId = -1">My Recipes</button>
     </div>
     
-    <app-add-recipe *ngIf="newRecipe===true"></app-add-recipe>
-    <app-edit-recipe *ngIf="editRecipeId > -1"></app-edit-recipe>
+    <app-add-recipe *ngIf="ui.newRecipe===true"></app-add-recipe>
+    <app-edit-recipe *ngIf="ui.editRecipeId > -1"></app-edit-recipe>
     
-    <div *ngIf="newRecipe===false && editRecipeId < 0" class="table-container">
+    <div *ngIf="ui.newRecipe===false && ui.editRecipeId < 0" class="table-container">
         <h1>My Recipes</h1>
         <br>
         <table mat-table [dataSource]="this.dataSource" class="mat-elevation-z8">
@@ -42,7 +42,7 @@
 
             <ng-container matColumnDef="Delete">
                 <th mat-header-cell *matHeaderCellDef> Delete </th>
-                <td mat-cell *matCellDef="let element" (click)="ui.deleteItemUnit(element.id)">
+                <td mat-cell *matCellDef="let element" (click)="ui.deleteRecipe(element.id)">
                 <mat-icon color="accent">delete_forever</mat-icon></td>
             </ng-container>
           

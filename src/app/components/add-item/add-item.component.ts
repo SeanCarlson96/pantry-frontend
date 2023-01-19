@@ -20,12 +20,12 @@ export class AddItemComponent {
   constructor(public ui: UiService) { }
 
   createItemUnit(){
-    if(this.ui.pantries.length < 1){
-      this.newPantry = {
-        itemIds: []
-      }
-      this.ui.addPantry(this.newPantry)
-    }
+    // if(this.ui.pantries.length < 1){
+    //   this.newPantry = {
+    //     itemIds: []
+    //   }
+    //   this.ui.addPantry(this.newPantry)
+    // }
     this.newItemUnit = {
       name: this.newItemUnitName,
       image: this.newItemUnitImage,
@@ -36,5 +36,6 @@ export class AddItemComponent {
       thisItemInRecipeIds: []
     }
     this.ui.addItemUnit(this.newItemUnit)
+    this.ui.newItemUnit=false
   }
 }

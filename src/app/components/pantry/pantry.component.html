@@ -1,20 +1,29 @@
-<div class="add-btn" *ngIf="editItemUnitId < 0">
-    <button mat-flat-button color="accent" *ngIf="newItemUnit===false"
-    (click)="newItemUnit = true">Add New Item</button>
-    <button mat-flat-button color="accent" *ngIf="newItemUnit===true" (click)="newItemUnit = false; ui.loadItemUnits();">Inventory Table</button>
+<div *ngIf="ui.pantries.length > 0">
+  <div class="add-btn" *ngIf="ui.editItemUnitId < 0">
+    <button mat-flat-button color="accent" *ngIf="ui.newItemUnit===false"
+    (click)="ui.newItemUnit = true">Add New Item</button>
+    <button mat-flat-button color="accent" *ngIf="ui.newItemUnit===true" (click)="ui.newItemUnit = false; ui.loadItemUnits();">Inventory Table</button>
     </div>
-    <div class="add-btn" *ngIf="editItemUnitId > -1">
-      <button mat-flat-button color="accent" *ngIf="newItemUnit===false"
-      (click)="newItemUnit = false; editItemUnitId = -1">Inventory Table</button>
+    <div class="add-btn" *ngIf="ui.editItemUnitId > -1">
+      <button mat-flat-button color="accent" *ngIf="ui.newItemUnit===false"
+      (click)="ui.newItemUnit = false; ui.editItemUnitId = -1">Inventory Table</button>
     </div>
+</div>
     
-    <app-add-item *ngIf="newItemUnit===true"></app-add-item>
-    <app-edit-item *ngIf="editItemUnitId > -1"></app-edit-item>
+    <app-add-item *ngIf="ui.newItemUnit===true"></app-add-item>
+    <app-edit-item *ngIf="ui.editItemUnitId > -1"></app-edit-item>
     
-    <div *ngIf="newItemUnit===false && editItemUnitId < 0" class="table-container">
+    <div *ngIf="ui.newItemUnit===false && ui.editItemUnitId < 0" class="table-container">
         <h1>Current Inventory</h1>
         <br>
-        <table mat-table [dataSource]="this.dataSource" class="mat-elevation-z8">
+
+        <button mat-flat-button color="accent" 
+              *ngIf="ui.pantries.length < 1"
+              (click)="ui.addPantry({itemIds: []})">
+              Create Pantry</button>
+
+        <table mat-table [dataSource]="this.dataSource" class="mat-elevation-z8"
+        *ngIf="ui.pantries.length > 0">
           
             <ng-container matColumnDef="image">
               <th mat-header-cell *matHeaderCellDef> Image </th>

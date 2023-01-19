@@ -72,6 +72,7 @@ export class EditRecipeComponent {
         weightNeeded: this.editItemInRecipeWeightArr[itemId],
         recipeId: this.recipeId
       }
+      console.log(this.editItemInRecipe)
       this.ui.updateItemInRecipe(this.editItemInRecipeId, this.editItemInRecipe)
     }
 
@@ -83,5 +84,6 @@ export class EditRecipeComponent {
     }
     this.editRecipe.steps = this.editRecipeSteps
     this.ui.updateRecipe(this.recipeId, this.editRecipe)
+    this.ui.editRecipeId = -1
   }
 }

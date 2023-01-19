@@ -58,5 +58,6 @@ export class ViewRecipeComponent implements OnDestroy {
           thisItemInRecipeIds: this.thisItemInRecipeIds
         })
     }
+    this.ui.setPage('pantry')
   }
 }
