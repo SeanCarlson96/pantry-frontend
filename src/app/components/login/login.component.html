@@ -2,6 +2,7 @@
     <mat-card-header>
       <h2>Log In</h2>
     </mat-card-header>
+    <br>
 
   <mat-form-field>
     <mat-label>Username</mat-label>
@@ -25,4 +26,7 @@
 
   <button mat-flat-button color="primary"
   (click)="onLogIn(liUsername.value, liPassword.value)">Log In</button>
+  
+  <button mat-flat-button color="accent"
+  (click)="ui.setPage('signup')">Sign Up</button>
 </mat-card>

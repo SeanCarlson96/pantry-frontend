@@ -7,7 +7,7 @@ import { UiService } from 'src/app/services/ui.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  private ui: UiService;
+  public ui: UiService;
   public suUsername: string = ''
   public suPassword: string = ''
 

@@ -1,6 +1,7 @@
 <div *ngIf="ui.loggedIn===false">
-    <app-login></app-login>
-
+    <!-- <app-login></app-login> -->
+    <app-login *ngIf="ui.currentPage!=='signup'"></app-login>
+    <app-signup *ngIf="ui.currentPage==='signup'"></app-signup>
 </div>
 
 <div *ngIf="ui.loggedIn===true">
