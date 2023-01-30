@@ -70,7 +70,9 @@ export class UiService {
     localStorage.removeItem('currentUser');
   }
   openSnackBar(message: string, action: string){
-    this._snackBar.open(message, action);
+    this._snackBar.open(message, action, {
+      duration: 2000
+    });
   }
 
   ///AppUsers
@@ -112,7 +114,7 @@ export class UiService {
       .pipe(take(1))
       .subscribe({
         next: () => {
-          this.openSnackBar('Registered Successfully', 'Close')
+          this.openSnackBar('Registered Successfully, Please Log In', 'Close')
           this.loadUsers();
         },
         error: () => this.openSnackBar('This username is already registered', 'Close'),

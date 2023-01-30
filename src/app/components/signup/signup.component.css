@@ -1,11 +1,12 @@
 .card {
     width: 400px;
     margin: auto;
-    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     padding: 20px;
+    margin-top: 20vh;
+    border: solid rgb(221, 217, 217) 1px;
 }
 .card button {
     margin: 3px;

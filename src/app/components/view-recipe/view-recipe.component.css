@@ -1,3 +1,29 @@
+#totalContain {
+    margin: auto;
+    border: solid rgb(221, 217, 217) 1px;
+    border-radius: 5px;
+    padding: 1rem;
+    width: fit-content;
+    block-size: fit-content;
+}
 img {
     height: 300px;
+} 
+#imageAndTitleContain {
+    display: flex;
+    gap: 1rem;
+}
+#title {
+    margin-top: auto;
+}
+span {
+    padding: .5rem;
+    border: solid rgb(221, 217, 217) 1px;
+    border-radius: 3px;
+}
+#error {
+    color: red;
+    padding: 10px 0 0 0;
+    margin-top: auto;
+    margin-bottom: auto;
 }

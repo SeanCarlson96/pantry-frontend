@@ -11,7 +11,10 @@
 
         <div *ngIf="ui.loggedIn">
             <span (click)="ui.setPage('profile')">My Profile</span>
-            <span (click)="ui.logout()">Logout</span>
+            <span (click)="ui.logout()">
+                Logout
+                <!-- <mat-icon color="accent">exit_to_app</mat-icon> -->
+            </span>
         </div>
     </div>
 

@@ -1,18 +1,39 @@
-<img src={{this.recipeImage}} alt="recipe image"/>
-<h1>{{this.recipeName}}</h1>
-<p>by: {{this.recipeUser.username}}</p>
-
-<br>
-<h3>Ingredients</h3>
-<div *ngFor="let ingredient of this.recipeIngredients">
-    <p>{{ingredient.weightNeeded}} grams of {{ingredient.item.name}}</p>
+<div id="totalContain">
+    <!-- <div id="imageAndTitleContain">
+        <img src={{this.recipeImage}} alt="recipe image"/>
+        <div id="title">
+            <h1>{{this.recipeName}}</h1>
+            <p>Created by: {{this.recipeUser.username}}</p>
+        </div>
+    </div> -->
+        <img src={{this.recipeImage}} alt="recipe image"/>
+            <h1>{{this.recipeName}}</h1>
+            <p>Created by: {{this.recipeUser.username}}</p>
+    <br>
+    <div id="imageAndTitleContain">
+        <span>{{this.recipeIngredients.length}} Ingredients</span>
+        <span>{{this.recipeTotalCalories}} Total Calories</span>
+    </div>
+    <br>
+    <h3>Ingredients</h3>
+    <div *ngFor="let ingredient of this.recipeIngredients">
+        <p>{{ingredient.weightNeeded}} g {{ingredient.item.name}}</p>
+    </div>
+    
+    <br>
+    <h3>Directions</h3>
+    <p>{{this.recipeSteps}}</p>
+    
+    <br>
+    <div *ngIf="this.recipePossible===true">
+        <button mat-flat-button color="accent" (click)="recipeMade()">
+            I Made This Recipe
+        </button>
+    </div>
+    <div *ngIf="this.recipePossible===false">
+        <button mat-flat-button color="accent" disabled="true">
+            I Made This Recipe
+        </button>
+        <p id="error">You need more {{this.missing.join(' and ')}} to make this recipe</p>
+    </div>
 </div>
-
-<br>
-<h3>Steps</h3>
-<p>{{this.recipeSteps}}</p>
-
-<br>
-<button mat-flat-button color="accent" (click)="recipeMade()">
-    I Made This Recipe
-</button>

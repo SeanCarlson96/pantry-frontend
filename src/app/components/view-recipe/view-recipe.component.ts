@@ -20,17 +20,33 @@ export class ViewRecipeComponent implements OnDestroy {
   totalWeightAfterRecipe: number = 0
   newPantryQuantity: number = 0
   thisItemInRecipeIds: number[] = []
+  recipeTotalCalories: number = 0
+  calTotal: number = 0
+  recipePossible: boolean = true
+  missing: string[] = []
 
   constructor(public ui: UiService) {
     this.ui.loadRecipes()
     this.recipesSubscription = ui.whenRecipesUpdates().subscribe(recipes => {
     for(let recipe of recipes){
       if(recipe.id===this.ui.recipeIdToView){
+        console.log(recipe)
         this.recipeName = recipe.name
         this.recipeImage = recipe.image
         this.recipeIngredients = recipe.ingredients
         this.recipeSteps = recipe.steps
         this.recipeUser = recipe.user
+      }
+    }
+    if(this.recipeTotalCalories === 0 ){
+      for(let item of this.recipeIngredients){
+        this.recipeTotalCalories += ( item.weightNeeded / item.item.weightPerUnit ) * item.item.caloriesPerUnit
+      }
+    }
+    for(let item of this.recipeIngredients){
+      if(item.weightNeeded > (item.item.pantryQuantity * item.item.weightPerUnit)){
+        this.missing.push(item.item.name)
+        this.recipePossible = false
       }
     }
     })
