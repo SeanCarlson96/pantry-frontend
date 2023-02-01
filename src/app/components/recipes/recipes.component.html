@@ -60,7 +60,7 @@
             <ng-container matColumnDef="Delete">
                 <th mat-header-cell *matHeaderCellDef> Delete </th>
                 <td mat-cell *matCellDef="let element" (click)="ui.deleteRecipe(element.id)">
-                <mat-icon color="accent">delete_forever</mat-icon></td>
+                <mat-icon color="warn">delete_forever</mat-icon></td>
             </ng-container>
           
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
