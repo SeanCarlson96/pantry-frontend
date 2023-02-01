@@ -74,7 +74,7 @@ export class EditRecipeComponent {
         weightNeeded: this.editItemInRecipeWeightArr[itemId],
         recipeId: this.recipeId
       }
-      console.log(this.editItemInRecipe)
+      // console.log(this.editItemInRecipe)
       this.ui.updateItemInRecipe(this.editItemInRecipeId, this.editItemInRecipe)
     }
 

@@ -7,3 +7,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .container {
     width: 500px;
 }
+.recipe-container {
+    width: 900px;
+    margin: auto;
+    padding-top: 20px;
+}
+.pantry-container {
+    width: fit-content;
+    margin: auto;
+    padding-top: 20px;
+}
+.above-table {
+    display: flex;
+    justify-content: space-between;
+}

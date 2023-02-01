@@ -1,6 +1,6 @@
-<h3 style="margin-left: 5vw;">Edit Recipe</h3><br/>
+<h3>Edit Recipe</h3>
+<br/>
 <div>
-    
     <div *ngIf="recipeNameImageEdited===false"  class="container">
         <mat-form-field appearance="fill">
             <mat-label>Recipe Name</mat-label>
@@ -17,7 +17,7 @@
         <button mat-fab extended type="submit" color="accent" (click)="updateRecipe()">
             Add Ingredients
             <mat-icon>arrow_forward</mat-icon>
-        </button>
+        </button> 
     </div>
 
         <div *ngIf="recipeNameImageEdited===true" class="container">
@@ -31,7 +31,7 @@
     
             <div *ngFor="let itemId of editRecipeIngredients">
                 <mat-form-field>
-                    <mat-label>Weight of {{ findName(itemId) }} Needed (g)</mat-label>
+                    <mat-label>{{ findName(itemId) }} Needed (g)</mat-label>
                     <input name="editItemInRecipeWeightArr{{itemId}}" matInput type="number"
                     [(ngModel)]="editItemInRecipeWeightArr[itemId]" required />
                 </mat-form-field>

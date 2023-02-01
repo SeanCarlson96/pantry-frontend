@@ -16,20 +16,22 @@ export class RecipesComponent implements OnDestroy {
   public displayedColumns: string[] = ['image', 'name', 'View', 'Edit', 'Delete' ];
   public dataSource: Recipe[] = []
   private recipesSubscription: Subscription
+  public data: Recipe[] = []
 
   constructor(ui:UiService){
     this.ui = ui
     ui.loadRecipes()
+    this.dataSource = []
     this.recipesSubscription = ui.whenRecipesUpdates().subscribe(recipes => {
       if(this.ui.currentUser?.id===undefined){
         this.dataSource = []
-      } else {
+      } else if(this.data = []){
         for(let i = 0; i < recipes.length; i++){
-          if(recipes[i].user.id !== this.ui.currentUser?.id){
-            recipes.splice(i, 1)
+          if(recipes[i].user.id === this.ui.currentUser?.id){
+            this.data.push(recipes[i])
           }
         }
-        this.dataSource = recipes
+        this.dataSource = this.data
       }
     })
   }

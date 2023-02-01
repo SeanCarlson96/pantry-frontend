@@ -1,7 +1,7 @@
 <mat-toolbar class="toolbar" color="primary">
 
-    <span (click)="ui.setPage('pantry')">Pantry</span>
-    <span (click)="ui.setPage('recipes')">My Recipes</span>
+    <span [style.color]="ui.currentPage==='pantry' ? '#BDBDBD' : ''" (click)="ui.setPage('pantry')">Pantry</span>
+    <span [style.color]="ui.currentPage==='recipes' ? '#BDBDBD' : ''" (click)="ui.setPage('recipes')">My Recipes</span>
 
     <div class="right-header">
         <div *ngIf="!ui.loggedIn">
@@ -10,7 +10,7 @@
         </div>
 
         <div *ngIf="ui.loggedIn">
-            <span (click)="ui.setPage('profile')">My Profile</span>
+            <span [style.color]="ui.currentPage==='profile' ? '#BDBDBD' : ''" (click)="ui.setPage('profile')">My Profile</span>
             <span (click)="ui.logout()">
                 Logout
                 <!-- <mat-icon color="accent">exit_to_app</mat-icon> -->

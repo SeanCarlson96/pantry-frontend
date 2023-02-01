@@ -1,29 +1,31 @@
-<h1>Edit Info</h1>
-<div class="user-info">
-    <mat-form-field>
-        <mat-label>Username</mat-label>
-        <input
-          matInput
-          type="text"
-          placeholder="My Username"
-          [(ngModel)]="editUsername"
-        />
-      </mat-form-field>
-    
+<div class="pantry-container">
+  <h1>Edit Account Information</h1>
+  <div class="user-info">
       <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input
-          matInput
-          type="password"
-          placeholder="My Password"
-          [(ngModel)]="editPassword"
-        />
-      </mat-form-field>
-    
-      <button mat-flat-button color="primary" (click)="updateUserInfo()">
-      Update My Information</button>
-    <br>
-    
-      <button mat-flat-button color="accent" (click)="deleteUser()">
-        Delete My Account</button>
+          <mat-label>Username</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="My Username"
+            [(ngModel)]="editUsername"
+          />
+        </mat-form-field>
+      
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            placeholder="My Password"
+            [(ngModel)]="editPassword"
+          />
+        </mat-form-field>
+      
+        <button mat-flat-button color="primary" (click)="updateUserInfo()">
+        Update My Information</button>
+      <br>
+      
+        <button mat-flat-button color="accent" (click)="deleteUser()">
+          Delete My Account</button>
+  </div>
 </div>

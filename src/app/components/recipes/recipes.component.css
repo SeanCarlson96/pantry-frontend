@@ -1,12 +1,20 @@
-.add-btn {
-    margin-left: 5vw;
+h1 {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+.add-btn {
+    /* margin-left: 5vw; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* width: 900px;
+    margin: auto; */
+}
 .table-container {
     margin-top: 10px;
-    margin-left: 5vw;
-    margin-right: 5vw;
+    /* margin-left: 5vw;
+    margin-right: 5vw; */
+    /* width: 900px;
+    margin: auto; */
 }
 .mat-icon {
     cursor: pointer;
@@ -14,3 +22,6 @@
 img {
     height: 100px;
 }
+/* table {
+    width: fit-content;
+} */

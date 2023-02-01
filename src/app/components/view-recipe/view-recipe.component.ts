@@ -30,7 +30,6 @@ export class ViewRecipeComponent implements OnDestroy {
     this.recipesSubscription = ui.whenRecipesUpdates().subscribe(recipes => {
     for(let recipe of recipes){
       if(recipe.id===this.ui.recipeIdToView){
-        console.log(recipe)
         this.recipeName = recipe.name
         this.recipeImage = recipe.image
         this.recipeIngredients = recipe.ingredients

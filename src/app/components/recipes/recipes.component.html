@@ -1,21 +1,29 @@
     
-<div class="add-btn" *ngIf="ui.editRecipeId < 0">
-        <button mat-flat-button color="accent" *ngIf="ui.newRecipe===false"
-        (click)="ui.newRecipe = true">Add New Recipe</button>
-        <button mat-flat-button color="accent" *ngIf="ui.newRecipe===true"
-        (click)="ui.newRecipe = false; ui.loadRecipes();">My Recipes</button>
-    </div>
-    <div class="add-btn" *ngIf="ui.editRecipeId > -1">
-      <button mat-flat-button color="accent" *ngIf="ui.newRecipe===false"
-      (click)="ui.newRecipe = false; ui.editRecipeId = -1">My Recipes</button>
-    </div>
+<div class="recipe-container">
+
+  <div class="above-table">
+    <h1 *ngIf="ui.newRecipe===false && ui.editRecipeId < 0">My Recipes</h1>
     
+    <div class="add-btn" *ngIf="ui.editRecipeId < 0">
+        <button mat-flat-button color="accent" *ngIf="ui.newRecipe===false"
+        (click)="ui.newRecipe = true"><mat-icon>add_box</mat-icon>Add New Recipe</button>
+        <button mat-stroked-button color="accent" *ngIf="ui.newRecipe===true"
+        (click)="ui.newRecipe = false; ui.loadRecipes();"><mat-icon>arrow_backward</mat-icon>My Recipes</button>
+    </div>
+
+    <div class="add-btn" *ngIf="ui.editRecipeId > -1">
+      <button mat-stroked-button color="accent" *ngIf="ui.newRecipe===false"
+      (click)="ui.newRecipe = false; ui.editRecipeId = -1"><mat-icon>arrow_backward</mat-icon>My Recipes</button>
+    </div>
+
+  </div>
+
     <app-add-recipe *ngIf="ui.newRecipe===true"></app-add-recipe>
     <app-edit-recipe *ngIf="ui.editRecipeId > -1"></app-edit-recipe>
     
-    <div *ngIf="ui.newRecipe===false && ui.editRecipeId < 0" class="table-container">
-        <h1>My Recipes</h1>
-        <br>
+    <div *ngIf="ui.newRecipe===false && ui.editRecipeId < 0"
+    class="table-container">
+        
         <table mat-table [dataSource]="this.dataSource" class="mat-elevation-z8">
           
             <ng-container matColumnDef="image">
@@ -52,3 +60,4 @@
         </table>
     
     </div>
+</div>
