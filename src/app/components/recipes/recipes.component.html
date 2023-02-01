@@ -15,16 +15,25 @@
       <button mat-stroked-button color="accent" *ngIf="ui.newRecipe===false"
       (click)="ui.newRecipe = false; ui.editRecipeId = -1"><mat-icon>arrow_backward</mat-icon>My Recipes</button>
     </div>
-
+    
   </div>
+
+  <!-- <mat-form-field appearance="fill">
+    <mat-label>Recipe Owner</mat-label>
+    <mat-select name="usersDropdown" matInput [(ngModel)]="usersDropdown">
+        <mat-option [value]="-2">All Recipes</mat-option>
+        <mat-option *ngFor="let user of ui.appUsers" [value]="user.id">{{user.username}}</mat-option>
+    </mat-select>
+  </mat-form-field> -->
 
     <app-add-recipe *ngIf="ui.newRecipe===true"></app-add-recipe>
     <app-edit-recipe *ngIf="ui.editRecipeId > -1"></app-edit-recipe>
     
     <div *ngIf="ui.newRecipe===false && ui.editRecipeId < 0"
     class="table-container">
+    <p *ngIf="this.dataSource.length < 1">No recipes to display</p>
         
-        <table mat-table [dataSource]="this.dataSource" class="mat-elevation-z8">
+        <table *ngIf="this.dataSource.length > 0" mat-table [dataSource]="this.dataSource" class="mat-elevation-z8">
           
             <ng-container matColumnDef="image">
               <th mat-header-cell *matHeaderCellDef> Image </th>

@@ -1,3 +1,14 @@
+<div class="totCon">
+
+<div class="above-table">
+    
+    <div class="add-btn">
+        <button mat-stroked-button color="accent"
+        (click)="ui.setPage('recipes'); ui.loadRecipes();"><mat-icon>arrow_backward</mat-icon>My Recipes</button>
+    </div>
+
+</div>
+
 <div id="totalContain">
     <!-- <div id="imageAndTitleContain">
         <img src={{this.recipeImage}} alt="recipe image"/>
@@ -36,4 +47,5 @@
         </button>
         <p id="error">You need more {{this.missing.join(' and ')}} to make this recipe</p>
     </div>
+</div>   
 </div>

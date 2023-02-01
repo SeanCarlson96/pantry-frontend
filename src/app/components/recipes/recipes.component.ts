@@ -1,6 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { UiService } from 'src/app/services/ui.service';
+import { AppUser } from 'src/data/AppUser';
 import { Recipe } from 'src/data/Recipe';
 
 @Component({
@@ -17,6 +18,7 @@ export class RecipesComponent implements OnDestroy {
   public dataSource: Recipe[] = []
   private recipesSubscription: Subscription
   public data: Recipe[] = []
+  public usersDropdown: AppUser[] = []
 
   constructor(ui:UiService){
     this.ui = ui

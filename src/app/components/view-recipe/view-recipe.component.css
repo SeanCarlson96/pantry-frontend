@@ -6,6 +6,18 @@
     width: fit-content;
     block-size: fit-content;
 }
+.totCon {
+    margin: auto;
+    width: fit-content;
+    block-size: fit-content;
+}
+.add-btn {
+    /* margin-left: 5vw; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* width: 900px;
+    margin: auto; */
+}
 img {
     height: 300px;
 } 
