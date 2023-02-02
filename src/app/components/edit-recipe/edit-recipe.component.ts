@@ -21,7 +21,7 @@ export class EditRecipeComponent {
   editItemInRecipeId: number = 0
 
   constructor(public ui: UiService) {
-    console.log(ui.recipes)
+    // console.log(ui.recipes)
     for(let recipe of ui.recipes) {
       if(recipe.id === ui.recipeIdToEdit){
         this.editRecipeName = recipe.name
@@ -33,7 +33,7 @@ export class EditRecipeComponent {
         this.editRecipeSteps = recipe.steps
       }
     }
-    console.log(this.editRecipeIngredients)
+    // console.log(this.editRecipeIngredients)
   }
 
   findName(itemId: number): string | undefined {
