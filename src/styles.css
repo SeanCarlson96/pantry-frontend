@@ -21,3 +21,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     display: flex;
     justify-content: space-between;
 }
+.image-cover {
+    object-fit: cover;
+    height: 150px;
+    width: 150px;
+}
